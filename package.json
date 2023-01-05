@@ -1,0 +1,17 @@
+{
+  "name": "proot-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "npm install --include=dev",
+    "update": "npm install npm@latest -g"
+  },
+  "author": "Oranamous,Jaegerwald",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^22.0.0",
+    "minecraft-protocol": "^1.36.2"
+  }
+}
