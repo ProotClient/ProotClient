@@ -12,6 +12,7 @@
   "author": "Oranamous,Jaegerwald",
   "license": "MIT",
   "dependencies": {
+    "discord-rpc": "^4.0.1",
     "electron": "^22.0.0",
     "minecraft-protocol": "^1.36.2"
   }

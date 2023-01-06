@@ -1,6 +1,8 @@
 const {ipcMain, app, BrowserWindow} = require('electron');
 const path = require('path');
-var fs = require('fs');
+const fs = require('fs');
+const rpc = require("discord-rpc");
+const client = new rpc.Client({ transport: 'ipc' });
 
 var window;
 
@@ -38,8 +40,7 @@ app.whenReady().then(()=>{
         if (BrowserWindow.getAllWindows().length === 0) {
             window = createWindow();
         }
-    }
-    );
+    });
 
     window.once('ready-to-show', ()=>{
         if (!setupDone) {
@@ -47,26 +48,23 @@ app.whenReady().then(()=>{
             window.show();
             setupDone = true;
         }
-    }
-    );
+    });
 
     app.on('window-all-closed', ()=>{
         if (process.platform !== 'darwin') {
             app.quit();
         }
-    }
-    );
-}
-);
+    });
+});
 
 ipcMain.handle("closeWindow", ()=>{
     window.close();
-}
-);
+});
+
 ipcMain.handle("minimizeWindow", ()=>{
     window.minimize();
-}
-);
+});
+
 ipcMain.handle("toggleMaximizeWindow", ()=>{
     if (window.isMaximized()) {
         window.unmaximize();
@@ -74,5 +72,30 @@ ipcMain.handle("toggleMaximizeWindow", ()=>{
         window.maximize();
     }
     return window.isMaximized();
-}
-);
+});
+
+client.login({ clientId: "1061041345382322227" }).catch(console.error);
+
+client.on('ready', () => {
+    console.log('Discord Rich Presence now active!');
+    client.request('SET_ACTIVITY', {
+        pid: process.pid,
+        activity: {
+            details: "Playing Minecraft 1.19.3",
+            state: "Developing the client",
+            timestamps: {
+                start: Date.now()
+            },
+            assets: {
+                large_image: "prootclient",
+                large_text: "ProotClient"
+            },
+            buttons: [
+                {
+                    label: "Join Game",
+                    url: "https://www.youtube.com/watch?v=jKdM6MhiSyo"
+                }
+            ]
+        }
+    });
+});
