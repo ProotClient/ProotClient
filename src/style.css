@@ -1,0 +1,38 @@
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.titlebar {
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    background-color: #C6C6C6;
+    padding: 0px 0px;
+    margin: 0px 0px;
+    overflow: hidden;
+    height: 32px;
+    font-size: 0px;
+}
+
+.titlebar-button {
+    -webkit-user-select: none;
+    -webkit-app-region: no-drag;
+    user-drag: none;
+    background-color: #C6C6C6;
+    padding: 0px 10px;
+    margin: 0px 0px;
+    transition: 0.2s;
+}
+
+.titlebar-button:hover {
+  background-color: #E6E6E6;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}

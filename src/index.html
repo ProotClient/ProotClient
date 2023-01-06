@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head id="head">
+  <meta charset="UTF-8"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="lib/p5.min.js"></script>
+</head>
+<body>
+    <div class="titlebar">
+        <div class="left">
+            <img src="icon.png", width="32px", height="32px"/>
+            Minecraft
+        </div>
+        <div class="right">
+            <img class="titlebar-button", src="img/minimize.png", id="titlebar_minimize", width="32px", height="32px"/>
+            <img class="titlebar-button", src="img/shrink.png", id="titlebar_toggle_maximize", width="32px", height="32px"/>
+            <img class="titlebar-button", src="img/close.png", id="titlebar_close", width="32px", height="32px"/>
+        </div>
+    </div>
+    <script src="js/setup.js "></script>
+    <script src="js/menu.js "></script>
+    <script src="js/tick.js "></script>
+    <script src="js/game.js "></script>
+    <script src="js/ui.js "></script>
+</body>
+</html>
