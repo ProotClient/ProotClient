@@ -9,7 +9,7 @@ var setupDone = false;
 function createWindow() {
     const win = new BrowserWindow({
         title: "Minecraft 1.19.3*",
-        icon: 'src/icon_taskbar.png',
+        icon: 'src/icon.png',
         show: false,
         backgroundColor: '#323232',
         titleBarStyle: 'hidden',
