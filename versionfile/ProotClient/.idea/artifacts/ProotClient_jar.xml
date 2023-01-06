@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ProotClient:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProotClient_jar</output-path>
+    <root id="archive" name="ProotClient.jar">
+      <element id="module-output" name="ProotClient" />
+    </root>
+  </artifact>
+</component>
