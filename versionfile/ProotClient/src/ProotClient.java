@@ -12,52 +12,44 @@ public class ProotClient {
         ProotClient.startProcess(args);
     }
 
-    /*public static String combineArgs(String[] args) {
-        StringBuilder sb = new StringBuilder();
-        for (String str : args) {
-            sb.append(str).append(' ');
-        }
-        return sb.substring(0, Math.max(0, sb.length() - 1));
-    }*/
-
     public static void startProcess(String[] args) {
-        ProotClient.LOGGER.info("STARTING ProotClient");
+        ProotClient.LOGGER.info("START");
 
         String[] cmdArgs = new String[args.length + 2];
         cmdArgs[0] = "node";
         cmdArgs[1] = System.getProperty("user.dir") + "\\prootclient\\ProotClient.js";
         System.arraycopy(args, 0, cmdArgs, 2, args.length);
 
-        ProotClient.LOGGER.info("Command args:");
-        for (int i = 0; i < cmdArgs.length; i++) {
-            ProotClient.LOGGER.info("    " + cmdArgs[i]);
+        ProotClient.LOGGER.debug("Command args:");
+        for (String cmdArg : cmdArgs) {
+            ProotClient.LOGGER.debug("    " + cmdArg);
         }
 
-        ProotClient.LOGGER.info("Building new process");
+        ProotClient.LOGGER.debug("Building process");
         ProcessBuilder processBuilder = new ProcessBuilder();
         processBuilder.command(cmdArgs);
-        ProotClient.LOGGER.info("Process built");
+        ProotClient.LOGGER.debug("Process built");
 
         try {
-            ProotClient.LOGGER.info("Starting process");
+            ProotClient.LOGGER.debug("Starting process");
             Process process = processBuilder.start();
-            ProotClient.LOGGER.info("Process started");
+            ProotClient.LOGGER.debug("Process started");
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            ProotClient.LOGGER.info("Got input stream");
+            ProotClient.LOGGER.debug("Got input stream");
             String line;
             while ((line = reader.readLine()) != null) {
-                LOGGER.info(line + "\n");
+                LOGGER.info("(js) " + line);
             }
             ProotClient.LOGGER.debug("Waiting for process end");
             int exitVal = process.waitFor();
+            ProotClient.LOGGER.info("STOP");
             if (exitVal == 0) {
-                ProotClient.LOGGER.info("Process has completed successfully");
+                ProotClient.LOGGER.debug("Process has completed successfully");
                 System.exit(0);
             } else {
-                ProotClient.LOGGER.warn("Unexpected exit val: " + exitVal);
+                ProotClient.LOGGER.debug("Unexpected exit val: " + exitVal);
                 System.exit(exitVal);
             }
-            ProotClient.LOGGER.info("CLOSING");
         } catch (IOException | InterruptedException e) {
             ProotClient.LOGGER.error(e.getMessage());
         }
