@@ -1,0 +1,1 @@
+Both ProotClient.jar and ProotClient.json need to be installed to .minecraft/versions/ProotClient, once they are there, they should handle the rest of the dependencies automatically on boot
