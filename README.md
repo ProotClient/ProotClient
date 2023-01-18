@@ -8,3 +8,4 @@ ProotClient is a powerful and feature-rich client for the popular video game [Mi
 
 - [ProotClient Assets](https://www.github.com/ProotClient/ProotClient-Assets)
 - [ProotClient Installer](https://www.github.com/ProotClient/ProotClient-Installer)
+- [ProotClient Installer](https://www.github.com/ProotClient/ProotClient-UI-Editor)
