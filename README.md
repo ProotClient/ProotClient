@@ -1,3 +1,5 @@
+<center><img src="README-Disclaimer-Banner.png"></img></center>
+
 <center><img src="ProotClient-Logo.png"></img></center>
 
 # ProotClient
