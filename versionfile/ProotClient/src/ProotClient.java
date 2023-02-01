@@ -28,7 +28,8 @@ public class ProotClient {
 
         debug("Building process");
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command(cmdArgs);
+        //processBuilder.command(cmdArgs);
+        processBuilder.command(System.getProperty("user.dir") + "\\start.bat");
         debug("Process built");
 
         try {
